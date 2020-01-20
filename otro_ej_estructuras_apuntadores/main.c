@@ -55,6 +55,8 @@ void modificar_disc(struct Disc* d){
 
     --sirve para liberrar ese espacaio de memeoria, para tener más espacio
     fee(ap)
+
+    --Correo del profe: david.yxk@gmail.com
 */
 
 
