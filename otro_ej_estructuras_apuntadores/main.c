@@ -45,6 +45,16 @@ void modificar_disc(struct Disc* d){
     -memoria automática; cuando el compilador sabe de que tamaño son
     -ahora en los arreglos se neceita volver a compiar todo de nuevo
     -Memoria dinámica: cuando no sea necesario tanto el uso de apuntadores es necesario
+
+
+    3 funciones de una biblioteca stdlib.h
+
+    malloc(tamaño en bytes)
+    calloc(numero de elemetnos, bytes elementos)
+    realloc(apuntador, nuevo tamaño)
+
+    --sirve para liberrar ese espacaio de memeoria, para tener más espacio
+    fee(ap)
 */
 
 
