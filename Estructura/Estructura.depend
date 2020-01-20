@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1579550467 source:/home/ariel/Desktop/dataStruct/Estructura/main.c
+1579551410 source:/home/ariel/Desktop/dataStruct/Estructura/main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

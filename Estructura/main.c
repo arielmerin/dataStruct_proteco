@@ -17,7 +17,7 @@ struct computer create();
 int main()
 {
 
-    printf("Hello world!\n");
+    printf("Hello worlddddddddd!\n");
 
     struct computer c1;
 
@@ -34,8 +34,10 @@ int main()
        "54adf548",
        1544
     };
+    print_data(c2);
 
     struct computer c3 = create();
+
     readData(c3);
     print_data(c3);
 
@@ -52,7 +54,7 @@ void readData(struct computer c){
     printf("Ingresa un modelo: \n");
     scanf("%s", c.modelo);
     printf("Ingresa la cantidad de memoria: \n");
-    scanf("%d", c.memoria);
+    scanf("%d", &c.memoria);
 }
 
 struct computer create(){
@@ -67,6 +69,11 @@ void print_data(struct computer c){
     printf("El tamano de memoria es: %d", c.memoria);
     printf("El modelo es: %s", c.modelo);
 }
+
+//Apuntador; es un avariable que alamcena una direccipon dememoria, para un apuntador se requiere:
+//operador de referencia; & que devuelve la dirección de memoria
+//* este operador devuelve el eocntenido de la dirección de memoria
+// pore ejemplo &a significa dirección de memoria de la variable a
 
 
 
