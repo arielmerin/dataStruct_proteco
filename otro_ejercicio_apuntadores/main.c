@@ -3,7 +3,7 @@
 
 int main()
 {
-    printf("Hello world!\n");
+    printf("Bonjour Le monde\n");
     int x,y;
     //& este símbolo representa a donde apuntar el apuntadorm vaya redundancia
     int* ap =&x;
