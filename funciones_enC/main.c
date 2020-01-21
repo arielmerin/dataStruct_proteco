@@ -5,18 +5,28 @@
 
 int main()
 {
-    int *arr = NULL;
+    int *arr;
     int size;
-    int arreglo_elementos[size];
 
     printf("Hello world!\n");
     printf("Ingresa el tamaño del arreglo: ");
     scanf("%i", &size);
+    //int arreglo_elementos[size];
 
-    //El casteo es parte importante de las buenas prácticas, en las nuevas versiones del c el compilador  lo hace por sí mismo
-    arr = (int)malloc(sizeof(int) * size);
-    //Una vez creado el espacio, vamos a confirmarlo con esta parte del código
-    // Apuntador dirección de memoria de otra variable
+    /*
+    El casteo es parte importante de las buenas prácticas,
+    en las nuevas versiones del c el compilador  lo hace por sí mismo
+
+    arr = (int*)malloc(sizeof(int) * size);
+    Aquí estamos declarando un arregle, al parecere es exclusiva para esto pero no estoy seguro
+    */
+    arr = (int*)calloc(sizeof(int), size);
+
+
+    /*
+    Una vez creado el espacio, vamos a confirmarlo con esta parte del código
+    Apuntador dirección de memoria de otra variable
+    */
     if( arr ==  NULL){
         printf("Oh oh, memoria insuficiente. Terrible, oremos");
         //Es una convención que sirve para mensaje de error interno,
@@ -26,12 +36,26 @@ int main()
 
     //Asignar o guardar ios datos
     for (int i = 0; i< size; i++){
-        printf("Ingresa el elemento %i, darregloel arreglo: ");
-        //Hay dos maneras de hacer esto, esta es una manera de hacerlo
-        scanf("%i", arreglo_elementos[i] );
-
+        printf("Ingresa el elemento %i, del arreglo: ", i);
+        /*Hay dos maneras de hacer esto, esta es una manera de hacerlo, la primera está silenciada, pero en general funcionan con
+        la aritmtica de arreglos
+        scanf("%i", arr[i] );
+        También hay que ver que la dirección de los arreglos sea bien declarada
+        */
+        scanf("%i", (arr + i));
         //
     }
+
+    /*Tulizar, hacer operaciones con los datos
+    Recuerda siempre declarar bien el entero igual a i= 0 si no, no compilará
+    */
+    for(int i = 0; i < size; i++){
+        printf("Elemento %i: %i \n", i, *(arr + i));
+    }
+
+    //Para liberar memoria o terminar con el proceso
+    free(arr);
+
 
     return 0;
 }
