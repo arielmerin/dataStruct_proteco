@@ -59,7 +59,7 @@ int main()
         /**
         Nos olvidamos de la flecha porque esto no es una estructura
         */
-            printf("Mostrando el elemento alojado en: %i rengln y %i columna = %i \n", i, j, *(*(matrix + i) + j) );
+            printf("%i \n", *(*(matrix + i) + j) );
         }
     }
 
@@ -78,5 +78,5 @@ int main()
 Cómo hacer un apuntador doble o un apuntador a un apuntador
 Hay qye gacer dis oasis y luefo cada uno de esos y así recursivamente (esto es un apuntador pero en una matriz de 2*2)
 
-
+En la inversa de la transpuesta cambiar renglones por columnas
 */
