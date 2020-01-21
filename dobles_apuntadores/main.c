@@ -7,8 +7,24 @@ int main()
 
 
     //Declarar variables
+    int raw, col;
+
+    int** matrix = NULL;
 
     //Reservar memoria
+    matrix = (int**)malloc(raw*sizeof(int*))
+    /*
+    Hacer un ciclo que dependa del número de renglones
+    porque es uno por uno
+    */
+    for(int i = 0; i < raw; i++){
+        matrix[i] = (int*)malloc(col*sizeof(int));
+        /*
+        Esta es otra manera de hacer lo que está en la linea anterior
+        *(matrix + i) = (int*)malloc(col*sizeof(int));
+        */
+
+    }
 
     //Validar el espacio
 
