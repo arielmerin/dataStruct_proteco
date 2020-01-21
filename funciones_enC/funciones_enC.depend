@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1579637732 source:/home/ariel/Desktop/dataStruct/funciones_enC/main.c
+	<stdio.h>
+	<stdlib.h>
+

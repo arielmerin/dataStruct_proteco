@@ -2,14 +2,16 @@
 #include <stdlib.h>
 
 
-
+/*
+Utilizaremos cada que use el mismo tipo de mememoria
+*/
 int main()
 {
-    int *arr;
+    float *arr;
     int size;
 
     printf("Hello world!\n");
-    printf("Ingresa el tamaño del arreglo: ");
+    printf("Ingresa el número de materias:  ");
     scanf("%i", &size);
     //int arreglo_elementos[size];
 
@@ -20,7 +22,7 @@ int main()
     Aquí estamos declarando un arregle, al parecere es exclusiva para esto pero no estoy seguro
     */
     //arr = (int*)malloc(sizeof(int) * size);
-    arr = (int*)calloc(sizeof(int), size);
+    arr = (float*)calloc(sizeof(float), size);
 
 
     /*
@@ -36,23 +38,33 @@ int main()
 
     //Asignar o guardar ios datos
     for (int i = 0; i< size; i++){
-        printf("Ingresa el elemento %i, del arreglo: ", i);
+        printf("Ingresa la calificación número %i de tu tira de materias: ", i+1);
         /*Hay dos maneras de hacer esto, esta es una manera de hacerlo, la primera está silenciada, pero en general funcionan con
         la aritmtica de arreglos
         scanf("%i", arr[i] );
         También hay que ver que la dirección de los arreglos sea bien declarada
+        poemos ocupar esto cuando haya problema con
+        la obtención de los valores desde la terminsl
+        etchar();
         */
-        scanf("%i", (arr + i));
+        scanf("%f", (arr + i));
         //
     }
 
     /*Tulizar, hacer operaciones con los datos
     Recuerda siempre declarar bien el entero igual a i= 0 si no, no compilará
+
+    Recuerda poner ambos en flotantes
     */
+    float suma = 0.0;
+    float promedio = 0.0;
+
     for(int i = 0; i < size; i++){
-        printf("Elemento %i: %i \n", i, *(arr + i));
+        suma += *(arr +i) ;
+        promedio = suma/size;
     }
 
+    printf("El promedio es : %f", promedio);
     //Para liberar memoria o terminar con el proceso
     free(arr);
 
