@@ -17,15 +17,15 @@ int main()
     El casteo es parte importante de las buenas prácticas,
     en las nuevas versiones del c el compilador  lo hace por sí mismo
 
-    arr = (int*)malloc(sizeof(int) * size);
     Aquí estamos declarando un arregle, al parecere es exclusiva para esto pero no estoy seguro
     */
+    //arr = (int*)malloc(sizeof(int) * size);
     arr = (int*)calloc(sizeof(int), size);
 
 
     /*
     Una vez creado el espacio, vamos a confirmarlo con esta parte del código
-    Apuntador dirección de memoria de otra variable
+    44Apuntador dirección de memoria de otra variable
     */
     if( arr ==  NULL){
         printf("Oh oh, memoria insuficiente. Terrible, oremos");
