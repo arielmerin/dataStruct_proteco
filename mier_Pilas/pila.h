@@ -3,8 +3,6 @@
 #include<stdbool.h>
 #include"node.h"
 
-Node* top;
-
 Node* createStack();
 
 bool isEmpty();
