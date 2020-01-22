@@ -38,7 +38,7 @@ void push(Node* t, int data){
 
     if (!isEmpty(t))
     {
-        nuevo->sig = t;
+        nuevo->sig = nuevo;
     }
     t = nuevo;
 }
@@ -64,11 +64,41 @@ Node* peek(Node* t){
 void show(Node* t){
     Node* aux = t;
     if(isEmpty(t)){
-        return
+        return;
     }
     while (aux->sig != NULL)
     {
         printf("%i", aux->content);
         aux = aux->sig;
     }
+}
+
+int popInt(Node*){
+    if(isEmpty(t)){
+        /**
+         * En este caso estamos devolviendo un -1 pero ojo porque tenemos que
+         * indicar que esto es un error, porque si no lo hacemo podemos tener
+         * cosas extrañas, tampoco podemos regresar null porque al castearlo a 0 nos va a 
+         * regresar 0
+         * 
+         * 
+         */
+        return -1;
+    }
+    Node* aux = pop(t);
+    int value = aux->content;
+    free(aux);
+    return value;
+
+
+}
+/**
+ * Es importante que regrese algo o bueno algo así
+ */
+int peekInt(Node* t){
+    if (isEmpty(t))
+    {
+        return -999999;
+    }
+    return t->content;  
 }

@@ -12,6 +12,10 @@ bool isEmpty(Node* t);
     Recuerda que lo súnico escenciales son push y pop si no no es una pila ok
 */
 void push(Node* t, int data);
+
+int popInt(Node*);
+
+int peekInt(Node*);
  
 Node* pop(Node* t);
 
