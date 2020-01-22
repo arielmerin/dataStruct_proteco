@@ -44,12 +44,17 @@ void push(Node* t, int data){
 }
  
 Node* pop(Node* t){
+    Node* aux = t;
 
-    if (isEmpty(t))
+    if (!isEmpty(t))
     {
-        /* code */
+        t = t->sig;
+        aux->sig = NULL;
     }
-    
+    /**
+     * Regresamos el 
+     */ 
+    return aux;
 }
 
 Node* peek(Node* t);
