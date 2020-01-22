@@ -15,16 +15,36 @@ Node* createStack(){
     return top;
 }
 
-bool isEmpty();
+/**
+ * Sólo se encarga de verificar si un tope es nulo 
+ */
+
+bool isEmpty(Node* t){
+    if (t == NULL){
+        return true;
+    }
+    return false;
+}
 
 
 /**
-    Recuerda que lo súnico escenciales son push y pop si no no es una pila ok
+    Recuerda que los únicos escenciales son push y pop si no no es una pila ok
+
+    El orden importa, primero debemos de poner  el nuevo apuntando al tope y finalmente el tope apuntand
+    al nuevo, es necesario porque de otra manera de va a ciclar en el último elemento
 */
-void push(Node* stack, int data);
+void push(Node* t, int data){
+    Node* nuevo = createNode(data);
+
+    if (!isEmpty(t))
+    {
+        nuevo->sig = t;
+    }
+    t = nuevo;
+}
  
-Node* pop(Node* stack);
+Node* pop(Node* t);
 
-Node* peek(Node* stack);
+Node* peek(Node* t);
 
-Node* show(Node* stack);
+Node* show(Node* t);

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1579637641 source:/home/ariel/Desktop/dataStruct/Apuntando/main.c
+	<stdio.h>
+	<stdlib.h>
+

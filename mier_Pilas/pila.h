@@ -5,16 +5,16 @@
 
 Node* createStack();
 
-bool isEmpty();
+bool isEmpty(Node* t);
 
 
 /**
     Recuerda que lo súnico escenciales son push y pop si no no es una pila ok
 */
-void push(Node* stack, int data);
+void push(Node* t, int data);
  
-Node* pop(Node* stack);
+Node* pop(Node* t);
 
-Node* peek(Node* stack);
+Node* peek(Node* t);
 
-Node* show(Node* stack);
+Node* show(Node* t);
