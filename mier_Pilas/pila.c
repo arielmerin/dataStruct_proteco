@@ -68,12 +68,12 @@ void show(Node* t){
     }
     while (aux->sig != NULL)
     {
-        printf("%i", aux->content);
+        printf("%i\n", aux->content);
         aux = aux->sig;
     }
 }
 
-int popInt(Node*){
+int popInt(Node* t){
     if(isEmpty(t)){
         /**
          * En este caso estamos devolviendo un -1 pero ojo porque tenemos que

@@ -1,13 +1,32 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "pila.h"
+#include<stdlib.h>
+
 
 /**
 Sirve poner una manera de definir una manera de definir la estructura
 */
-typedef struct Node{
-    int content;
-    struct Node* sig;
-};
+int main()
+{
+    Node* pila = createStack();
+    push(pila, 5);
+    if(isEmpty(pila)){
+        printf("HEllo emptyness\n");
+    }
+    push(pila, 10);
+    push(pila, 50);
+    push(pila, 15);
+    printf("Elementos en la pila después de agregar: \n");
+    show(pila);
+    pop(pila);
+    printf("prueba a pata");
+    ///printf("%i", pila->content);
+    printf("Elementos en la pila después de quitar el últimio: \n");
+    show(pila);
+
+    return 0;
+}
+
 
 /**
 Confort crowd
@@ -17,3 +36,7 @@ estructura de datos en general
 
 
 */
+
+/**
+ * Tarea poner la opción de que el disco
+ */
