@@ -57,6 +57,18 @@ Node* pop(Node* t){
     return aux;
 }
 
-Node* peek(Node* t);
+Node* peek(Node* t){
+    return t;
+}
 
-Node* show(Node* t);
+void show(Node* t){
+    Node* aux = t;
+    if(isEmpty(t)){
+        return
+    }
+    while (aux->sig != NULL)
+    {
+        printf("%i", aux->content);
+        aux = aux->sig;
+    }
+}

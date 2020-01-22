@@ -17,4 +17,4 @@ Node* pop(Node* t);
 
 Node* peek(Node* t);
 
-Node* show(Node* t);
+void show(Node* t);
