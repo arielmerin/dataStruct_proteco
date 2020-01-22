@@ -43,7 +43,14 @@ void push(Node* t, int data){
     t = nuevo;
 }
  
-Node* pop(Node* t);
+Node* pop(Node* t){
+
+    if (isEmpty(t))
+    {
+        /* code */
+    }
+    
+}
 
 Node* peek(Node* t);
 
