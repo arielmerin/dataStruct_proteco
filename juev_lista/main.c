@@ -30,6 +30,7 @@ int revomeFront(List* l);
 int revomeBack(List* l);
 int removeat(List* l, int posicion);
 int lookAt(List* l, int posicion);
+void showList(List* l);
 
 //Definiendo funciones de nodos
 Nodo * crearNodo(int dato) {
@@ -206,9 +207,41 @@ void insertAt(List* l, int data, int pos){
         l->size++;
     }
 }
+/**
+ * Sirve para mostrar los elementos de una lista
+ */
+void showList(List* l){
+    Nodo* aux = l->front;
+    /**
+     * Verificamos que la lista no sea vacía, de serlo el programa termina
+     */
+    if(isEmptyList(l)){
+        printf("No fue posible imprimir nada, lista vacía");
+        return;
+    }
+    /**
+     * Este while hace que recorramos todos los elementos y podamos ver qué onad con estos
+     */
+    while (aux != NULL )
+    {
+        /**
+         * Aquí podemos usar el %3i que sirve para mostrar los digitos faltantes y si le pongo un valor más grande
+         * no pasa nada, se ajusta y me sigue mostrando la cantidad con más dígitos
+         */
+        printf("%3i\n", aux->dato);
+        /**
+         * Sirve para hacer el corrimiento de los siguientes elementos
+         */
+        aux = aux->siguiente;
+    }
+    
+}
+
 
 
 #endif
 
 /**
  * Este tipo de isEmtpyList() recibe sólo un apuntador y no dos tipos de aputnadores
+ * Tarea hacer el main, y luego poner elementos 
+ */
