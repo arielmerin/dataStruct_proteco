@@ -126,6 +126,7 @@ int removeFront(List* l){
      * importante poner aux-> valor porque si no solo devuelve la parte dememoria;
      */
     int respaldo = aux->dato;
+    l->size--;
 
     free(aux);
     return respaldo;
@@ -141,7 +142,34 @@ int removeBack(List* l){
     }
 
     Nodo* aux = l->front;
-    
+    /**
+     * Hay que hacer otro auxiliar para guardar lo que tenemos en el dato guardado
+     */
+
+    Nodo* aux_final = l->back;
+    while (aux->siguiente != l->back)
+    {
+        aux = aux->siguiente;
+    }
+    /**
+     * Que la cola de la lista sea igual al penúltimo elemento, lo que obtivimos
+     * del cilco while
+     */
+    l->back = aux;
+    /**
+     * Hay que hacer que el penúltimo elemento de la lista apunte a nulo para desligar la lista
+     */
+    l->back->siguiente = NULL;
+    /**
+     * Obtener el resplado de la lista para no perderlo
+     */
+    int respaldo = aux_final->dato;
+    /**
+     * Liberar memoria de auxiliar 
+     */
+    free(aux_final);
+
+    return respaldo;
 }
 
 
