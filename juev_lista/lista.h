@@ -244,4 +244,5 @@ void showList(List* l){
 /**
  * Este tipo de isEmtpyList() recibe sólo un apuntador y no dos tipos de aputnadores
  * Tarea hacer el main, y luego poner elementos 
+ * En el main no vamos a manejar los ampersand porque no estamos usando lo de los aputnadores dobles ok 
  */
