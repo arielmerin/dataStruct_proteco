@@ -83,7 +83,9 @@ void insertFront(List* l, int data){
      */
     l->size++;
 }
-
+/**
+ * Esta parte es muy parecido a la parte de Queue
+ */
 void insertBack(List* l, int data){
     Nodo* nuevo = crearNodo(data);
     if(isEmptyList(l)){
@@ -92,10 +94,41 @@ void insertBack(List* l, int data){
     else
     {
         l->back->siguiente = nuevo;
+        l->back = nuevo;
     }
     l->size++;
-    
+}
 
+/**
+ * Es muy fácil eliminar el prinicipio así que es lo mismo que en Eliminar de una pila
+ * se parece mucho a pop()
+ */
+
+int removeFront(List* l){
+    if(isEmptyList(l)){
+        printf("La lista está vacía ok\n ");
+        return -99999;
+    }
+    /**
+     * Para remover simepre hay que usar un auxiliar si no se pierde la lista
+     */
+    Nodo* aux = front;
+    /**
+     * Movemos el front a siguiente para desenlazarla
+     */
+    front = front->siguiente;
+    /**
+     * Para mantener la memoria organizada
+     */
+    aux->siguiente = NULL;
+    /**
+     * Es una opción segura, recomentadada para no perder el dato
+     * importante poner aux-> valor porque si no solo devuelve la parte dememoria;
+     */
+    int respaldo = aux->dato;
+
+    free(aux);
+    return respaldo;
 }
 
 
