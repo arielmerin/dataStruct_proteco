@@ -131,6 +131,19 @@ int removeFront(List* l){
     return respaldo;
 }
 
+int removeBack(List* l){
+    /**
+     * Para revisar si está o no vacía
+     */
+    if(isEmptyList(l)){
+        printf("La lista está vacía ok\n ");
+        return -99999;
+    }
+
+    Nodo* aux = l->front;
+    
+}
+
 
 #endif
 
