@@ -82,7 +82,19 @@ void insertFront(List* l, int data){
      * Indepedientemente del caso tenemos que aumentar el tamaño del 
      */
     l->size++;
+}
 
+void insertBack(List* l, int data){
+    Nodo* nuevo = crearNodo(data);
+    if(isEmptyList(l)){
+        l->front = l->back = nuevo;
+    }
+    else
+    {
+        l->back->siguiente = nuevo;
+    }
+    l->size++;
+    
 
 }
 
