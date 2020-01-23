@@ -28,7 +28,8 @@ void insertBack(List* l, int data);
 int revomeFront(List* l);
 int revomeBack(List* l);
 int removeat(List* l, int posicion);
-int lookAt(List* l, int posicion)
+int lookAt(List* l, int posicion);
+
 //Definiendo funciones de nodos
 Nodo * crearNodo(int dato) {
     Nodo *nuevo= (Nodo*)malloc(sizeof(Nodo));
@@ -41,6 +42,49 @@ Nodo * crearNodo(int dato) {
     return nuevo;
 }
 
+List* create_list(){
+    List* nueva = (List*)malloc(sizeof(List));
+    if (nueva == NULL)
+    {
+        printf("Error, no se pudo reservar espacio en la memoria");
+        return NULL;
+    }
+    nueva->back = nueva->front = NULL;
+    nueva->size = 0;
+
+    return nueva;
+}
+
+bool isEmptyList(List* l){
+    if(l->front == NULL){
+        return true;
+    }
+    return false;
+}
+
+void insertFront(List* l, int data){
+    /**
+     * Crear nodo nuevo
+     */
+    Nodo* nuevo = crearNodo(data);
+    /**
+     * Verificar si la lista está vacia
+     */
+    if (isEmptyList(l)){
+        l->front = l->back = nuevo;
+    }
+    else
+    {
+        nuevo->siguiente = l->front;
+        l->front = nuevo;
+    }
+    /**
+     * Indepedientemente del caso tenemos que aumentar el tamaño del 
+     */
+    l->size++;
+
+
+}
 
 
 #endif
