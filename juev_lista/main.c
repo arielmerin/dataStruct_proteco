@@ -25,6 +25,7 @@ List* create_list();
 bool isEmptyList(List* l);
 void insertFront(List* l, int data);
 void insertBack(List* l, int data);
+void insertAt(List* l, int data, int pos);
 int revomeFront(List* l);
 int revomeBack(List* l);
 int removeat(List* l, int posicion);
@@ -168,8 +169,42 @@ int removeBack(List* l){
      * Liberar memoria de auxiliar 
      */
     free(aux_final);
+    /**
+     * Decrementamos el tamaño de la lista
+     */
+    l->size--;
 
     return respaldo;
+}
+
+void insertAt(List* l, int data, int pos){
+    if(isEmptyList(l)){
+        insertFront(l, data);
+    }
+
+    if (pos == 0)
+    {
+        printf("Insertando por el frente\n");
+        insertFront(l, data);
+    }
+    else if (pos == l->size)
+    {
+        printf("Insertando al final\n");
+        insertBack(l, data);
+    }
+    else
+    {
+        printf("Insertando en la posición: %i", pos);
+        Nodo* nuevo = crearNodo(data);
+        Nodo* aux = l->front;
+        for (int i = 0; i < pos -1; i++)
+        {
+            aux = aux->siguiente;
+        }
+        nuevo->siguiente = aux->siguiente;
+        aux->siguiente = nuevo;
+        l->size++;
+    }
 }
 
 
