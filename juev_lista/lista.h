@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include<stdbool.h>
+#include <stdbool.h>
 
 //Definición de nodo
 typedef struct Nodo {
@@ -21,15 +21,40 @@ typedef struct List
     int size;
 }List;
 
+/**
+ * Creado
+ */
 List* create_list();
+/**
+ * Creado
+ */
 bool isEmptyList(List* l);
+/**
+ * Creado
+ */
 void insertFront(List* l, int data);
+/**
+ * Creado
+ */
 void insertBack(List* l, int data);
+/**
+ * Creado
+ */
 void insertAt(List* l, int data, int pos);
+/**
+ * Creado
+ */
 int revomeFront(List* l);
+/**
+ * Creado
+ */
 int revomeBack(List* l);
-int removeat(List* l, int posicion);
-int lookAt(List* l, int posicion);
+
+int removeAt(List* l, int pos);
+void lookAt(List* l, int pos);
+/**
+ * Creado
+ */
 void showList(List* l);
 
 //Definiendo funciones de nodos
@@ -114,11 +139,11 @@ int removeFront(List* l){
     /**
      * Para remover simepre hay que usar un auxiliar si no se pierde la lista
      */
-    Nodo* aux = front;
+    Nodo* aux = l->front;
     /**
      * Movemos el front a siguiente para desenlazarla
      */
-    front = front->siguiente;
+    l->front = l->front->siguiente;
     /**
      * Para mantener la memoria organizada
      */
@@ -234,6 +259,37 @@ void showList(List* l){
          */
         aux = aux->siguiente;
     }
+    
+}
+void lookAt(List* l, int pos){
+    if(isEmptyList(l)){
+        return;
+    }
+
+    if (pos >= l->size || pos < 0)
+    {
+        return;
+    } else if (pos == 0)
+    {
+        int valor_frente = l->front->dato;
+        printf("%i\n", valor_frente);
+    }else if (pos == l->size - 1)
+    {   
+        int valor_fondo = l->back->dato;
+        printf("%i\n", valor_fondo);
+    }else
+    {
+        Nodo* aux = l->front;
+        for (int i = 0; i < pos; i++)
+        {
+            aux = aux->siguiente;
+        }
+        int respuesta = aux->dato;
+        printf("%i\n", respuesta);  
+    }
+    
+    
+    
     
 }
 
