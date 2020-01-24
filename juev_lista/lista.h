@@ -238,7 +238,7 @@ void insertAt(List* l, int data, int pos){
         l->size++;
     }
 }
-int removeAt(List l, int pos){
+int removeAt(List* l, int pos){
 
     if(isEmptyList(l)){
         printf("Error, la lista se encuentra vacía\n");
@@ -264,10 +264,7 @@ int removeAt(List l, int pos){
     } else
     {
         printf("Eliminando en la posición: %i", pos);
-        /**
-         * Crear auxiliar que me ayudará a eliminar el elemento
-         */        
-        Nodo* nuevo = crearNodo(data);
+
         /**
          * Crear auxiliar que me ayudará a eliminar el elemento pero este estrá más allá del otro
          */        
@@ -277,15 +274,35 @@ int removeAt(List l, int pos){
          */
         Nodo* scout = l->front;
         for (int i = 0; i < pos -1; i++)
-        {
+        {   
+            /**
+             * Lllegará a estar uno antes de la posición que queremos eliminar
+             */
             aux = aux->siguiente;
         }
+        /**
+         * Recorremos el scout al valor quue queremos eliminar
+         */
         scout = aux->siguiente;
-
+        /**
+         * El auxiiliar apuntará al siguiente del elemento que queremos eliminar
+         */
         aux->siguiente = scout->siguiente;
+        /**
+         * Haremos que el siguiente del elemento a eliminar apunte a nulo para mantener en orden la memoria
+         */
         scout->siguiente = NULL;
+        /**
+         * Respaldando el dato 
+         */
         int respaldo = scout->dato;
-        free(aux);
+        /**
+         * Liberando sólo el elemento a eliminar, por si las dudas
+         */
+        free(scout);
+        /**
+         * Decrementamos el valor del tamaño de nuestra lista
+         */
         l->size--;
         return respaldo;
     }
@@ -324,14 +341,15 @@ void lookAt(List* l, int pos){
     if(isEmptyList(l)){
         return;
     }
-
     if (pos >= l->size || pos < 0)
-    {
+    {   
+        printf("La posición es inválida\n");
         return;
     } else if (pos == 0)
     {
         int valor_frente = l->front->dato;
         printf("%i\n", valor_frente);
+        return;
     }else if (pos == l->size - 1)
     {   
         int valor_fondo = l->back->dato;
@@ -339,17 +357,13 @@ void lookAt(List* l, int pos){
     }else
     {
         Nodo* aux = l->front;
-        for (int i = 0; i < pos; i++)
+        for (int i = 0; i <= pos; i++)
         {
             aux = aux->siguiente;
         }
         int respuesta = aux->dato;
         printf("%i\n", respuesta);  
     }
-    
-    
-    
-    
 }
 
 
