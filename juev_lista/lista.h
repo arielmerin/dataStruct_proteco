@@ -238,6 +238,59 @@ void insertAt(List* l, int data, int pos){
         l->size++;
     }
 }
+int removeAt(List l, int pos){
+
+    if(isEmptyList(l)){
+        printf("Error, la lista se encuentra vacía\n");
+        return;
+    }
+
+    if (pos == 0)
+    {
+        printf("Insertando por el frente\n");
+        removeFront(l, data);
+    }
+    else if (pos == l->size - 1)
+    {
+        printf("Insertando al final\n");
+        removeBack(l, data);
+    }
+    /**
+     * Código corregido donde no se consideraba el caso en que las posiciones no fueran válidas
+     */
+    else if( pos < 0 || pos >= l->size){
+        printf("La posición es incorrecta\n");
+        return; 
+    } else
+    {
+        printf("Insertando en la posición: %i", pos);
+        /**
+         * Crear auxiliar que me ayudará a eliminar el elemento
+         */        
+        Nodo* nuevo = crearNodo(data);
+        /**
+         * Crear auxiliar que me ayudará a eliminar el elemento pero este estrá más allá del otro
+         */        
+        Nodo* aux = l->front;
+        /**
+         * Crear auxiliar que me ayudará a eliminar el elemento pero este estrá más allá del otro
+         */
+        Nodo* scout = l->front;
+        for (int i = 0; i < pos -1; i++)
+        {
+            aux = aux->siguiente;
+        }
+        scout = aux->siguiente;
+
+        aux->siguiente = scout->siguiente;
+        scout->siguiente = NULL;
+        int respaldo = scout->dato;
+        free(aux);
+        l->size--;
+        return respaldo;
+    }
+}
+
 /**
  * Sirve para mostrar los elementos de una lista
  */
@@ -307,4 +360,10 @@ void lookAt(List* l, int pos){
  * Este tipo de isEmtpyList() recibe sólo un apuntador y no dos tipos de aputnadores
  * Tarea hacer el main, y luego poner elementos 
  * En el main no vamos a manejar los ampersand porque no estamos usando lo de los aputnadores dobles ok 
+ */
+
+
+/**
+ * 
+ * Hacer de tarea que el auxiliar y el scout se pongan en un mimo for para implementar memoria
  */
