@@ -273,7 +273,7 @@ int removeAt(List* l, int pos){
          * Crear auxiliar que me ayudará a eliminar el elemento pero este estrá más allá del otro
          */
         Nodo* scout = l->front;
-        for (int i = 0; i < pos -1; i++)
+        for (int i = 0; i <= pos -1; i++)
         {   
             /**
              * Lllegará a estar uno antes de la posición que queremos eliminar
