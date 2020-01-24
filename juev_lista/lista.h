@@ -242,28 +242,28 @@ int removeAt(List l, int pos){
 
     if(isEmptyList(l)){
         printf("Error, la lista se encuentra vacía\n");
-        return;
+        return -9999;
     }
 
     if (pos == 0)
     {
         printf("Insertando por el frente\n");
-        removeFront(l, data);
+        removeFront(l);
     }
     else if (pos == l->size - 1)
     {
         printf("Insertando al final\n");
-        removeBack(l, data);
+        removeBack(l);
     }
     /**
      * Código corregido donde no se consideraba el caso en que las posiciones no fueran válidas
      */
     else if( pos < 0 || pos >= l->size){
         printf("La posición es incorrecta\n");
-        return; 
+        return -99999; 
     } else
     {
-        printf("Insertando en la posición: %i", pos);
+        printf("Eliminando en la posición: %i", pos);
         /**
          * Crear auxiliar que me ayudará a eliminar el elemento
          */        
